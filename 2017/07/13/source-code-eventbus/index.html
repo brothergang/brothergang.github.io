@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-8239948aedc00fb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-e0ea1920f9def3b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-fb219149d40a9b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-13T16:02:31.000Z">
+<meta property="og:updated_time" content="2017-07-13T16:04:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="源码解析之 EventBus">
 <meta name="twitter:description" content="Talk is cheap. Show me the code
@@ -411,7 +411,7 @@
 <a id="more"></a>
 <h3 id="什么是EventBus"><a href="#什么是EventBus" class="headerlink" title="什么是EventBus"></a>什么是EventBus</h3><p>我们在开发的过程中，免不了需要在各个页面间传递消息。除了最先想到的 Android 四大组件之一的 broadcast 之外，EventBus 应该是我们目前使用最多的通信模块了。如果你没有使用过 EventBus，那么使用广播可能觉得还行，但是一旦你使用过 EventBus，就会觉得使用广播相对来说比较麻烦而且效率也不高。<br>EventBus 大大的简化了应用程序内部各组件间，组件和后台线程之间的通信。所以最近一年 EventBus 非常流行，甚至到了滥用的地步。</p>
 <p>好了，废话不多说，直接上代码。</p>
-<p>###<br>最新的 EventBus 的 release 版本为 V3.0.0。但是为了竟可能简单的抓住 EventBus 的核心思想，本文以 V1.0.1 版本为基础，再次进行了削减，力求以最少的代码展示最核心的内容。其他的无非是在核心功能上做的扩展。</p>
+<p>最新的 EventBus 的 release 版本为 V3.0.0。但是为了竟可能简单的抓住 EventBus 的核心思想，本文以 V1.0.1 版本为基础，再次进行了削减，力求以最少的代码展示最核心的内容。其他的无非是在核心功能上做的扩展。</p>
 <p>demo 工程很简单，总共只有 4 个 java 文件，但是用来说明核心原理已经足够了，其中核心的类是 EventBusLite。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2159159-5a5f45b6aebb558f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="工程结构"></p>
 <h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><h4 id="定义事件类"><a href="#定义事件类" class="headerlink" title="定义事件类"></a>定义事件类</h4><p>这里直接使用 AnyEvent 作为任意事件的代表。<br><img src="http://upload-images.jianshu.io/upload_images/2159159-b5aeb96b4edf7ef7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="事件类"></p>
